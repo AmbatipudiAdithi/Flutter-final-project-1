@@ -10,27 +10,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: myHomePage());
+    return MaterialApp(home: finalproj());
   }
 }
 
-class myHomePage extends StatefulWidget {
-  const myHomePage({Key? key}) : super(key: key);
+class finalproj extends StatefulWidget {
+  const finalproj({Key? key}) : super(key: key);
 
   @override
-  State<myHomePage> createState() => _myHomePageState();
+  State<finalproj> createState() => _finalprojState();
 }
 
-class _myHomePageState extends State<myHomePage> {
+class _finalprojState extends State<finalproj> {
   var items=[
-    'Triangle','Square','Rectangle','Trapezium','Circle'
+    'Triangle','Square','Rectangle','Circle'
   ];
   var choice,x;
-  nextpage(){
-    Navigator.push(context,MaterialPageRoute(builder: (context)=>secondpage(choice: choice)));
-  }
   @override
   Widget build(BuildContext context) {
+    gotonextpage(){
+     Navigator.push(context,MaterialPageRoute(builder: (context)=>secondpage(choice: x)));
+    }
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -48,18 +48,21 @@ class _myHomePageState extends State<myHomePage> {
               Text("Please select your choice of figure",style: TextStyle(
                 color: Colors.white,fontStyle: FontStyle.italic,fontSize: 23
               ),),
-              DropdownButton(items: items.map((String items) {
+              DropdownButton(
+                icon: const Icon(Icons.keyboard_arrow_down),
+                items: items.map((String items) {
                 return DropdownMenuItem(
                   value: items,
                   child: Text(items),
                 );
-              }).toList(),
-                onChanged: choice=x,
-                value: x,
+              }).toList(),onChanged: (String? newValue) {setState(() {x = newValue!;print(x);});},
               ),
-              ElevatedButton(onPressed: nextpage(), child: Text("Click to input values",style: TextStyle(
-                color: Colors.white,fontSize: 23,fontStyle: FontStyle.italic
-              ),))
+              ElevatedButton(onPressed: gotonextpage, child: Text("Click to input values",style: TextStyle(
+                color: Colors.black,fontSize: 23,fontStyle: FontStyle.italic
+              ),),style: ButtonStyle(
+                foregroundColor: MaterialStatePropertyAll(Colors.black),
+                backgroundColor: MaterialStatePropertyAll(Colors.white)
+              ),)
             ],
           )
         ],

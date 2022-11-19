@@ -11,33 +11,33 @@ class secondpage extends StatefulWidget {
 class _secondpageState extends State<secondpage> {
   rounding(x){
     x=x*100;
-    x=x.roundtoDouble();
+    x=x.roundToDouble();
     x=x/100;
     return x;
   }
   final tcon=TextEditingController();
   final tcon1=TextEditingController();
   final tcon2=TextEditingController();
-  xx(x){a=x;}
-  var a;
-  operations(x){;
+  operations(x){
+    String a='10';
     if (x=='Square'){
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           TextField(controller:tcon,
-            onChanged: (text1) {xx(text1);},showCursor: true,style: TextStyle(
+            onChanged: (text1) {a=text1;},showCursor: true,style: TextStyle(
             color: Colors.black,fontStyle: FontStyle.italic,fontSize: 25,),
             decoration: InputDecoration(hintText:"Enter side length",fillColor: Colors.white,filled: true),
           ),
-          ElevatedButton(onPressed: gotoresults(rounding(double.parse(a)),0,0,widget.choice), child:
+          ElevatedButton(onPressed:
+            gotoresults(rounding(double.parse(a)),0,0,widget.choice), child:
           Text("Go to Results",style: TextStyle(
             color: Colors.black,fontStyle: FontStyle.italic,fontSize: 24
           ),),style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),)
         ],
       );
     }else if (x=='Rectangle'){
-      var b,c;
+      String b='10',c='10';
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -58,7 +58,7 @@ class _secondpageState extends State<secondpage> {
         ],
       );
     }else if(x=='Circle'){
-      var d;
+      String d='10';
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -74,7 +74,7 @@ class _secondpageState extends State<secondpage> {
         ],
       );
     }else if(x=='Triangle'){
-      var f,g,h;
+      String f='10',g='10',h='10';
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -120,7 +120,8 @@ class _secondpageState extends State<secondpage> {
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          operations(x)
+          operations(x),
+          Text("hi")
         ],
       ),
     );

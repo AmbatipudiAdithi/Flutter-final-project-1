@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:final_project/secondpage.dart';
+import 'package:final_project/secondtriangle.dart';
+import 'package:final_project/secondcircle.dart';
+import 'package:final_project/secondrectangle.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +31,9 @@ class _finalprojState extends State<finalproj> {
   var choice,x;
   @override
   Widget build(BuildContext context) {
+    gototri(){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>secondtri(choice: x)));
+    }
     gotonextpage(){
       Navigator.push(context,MaterialPageRoute(builder: (context)=>secondpage(choice: x)));
     }

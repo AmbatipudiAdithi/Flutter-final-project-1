@@ -1,14 +1,14 @@
 import 'package:final_project/resultspage.dart';
 import 'package:flutter/material.dart';
 
-class secondpage extends StatefulWidget {
-  secondpage({required this.choice});
+class secondrect extends StatefulWidget {
+  secondrect({required this.choice});
   final choice;
   @override
-  State<secondpage> createState() => _secondpageState();
+  State<secondrect> createState() => _secondrectState();
 }
 
-class _secondpageState extends State<secondpage> {
+class _secondrectState extends State<secondrect> {
   rounding(x){
     x=x*100;
     x=x.roundToDouble();
@@ -24,8 +24,9 @@ class _secondpageState extends State<secondpage> {
     )));
   }
   @override
+  var b,c;
   Widget build(BuildContext context) {
-    var a;
+    var x=widget.choice;
     return Scaffold(
       appBar: AppBar(
         title: Text("Area Calculator",style: TextStyle(
@@ -40,13 +41,17 @@ class _secondpageState extends State<secondpage> {
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              TextField(controller:tcon,
-                onChanged: (text1) {a=text1;},showCursor: true,style: TextStyle(
+              TextField(controller:tcon1,
+                onChanged: (text1) {c=text1;},showCursor: true,style: TextStyle(
                   color: Colors.black,fontStyle: FontStyle.italic,fontSize: 25,),
-                decoration: InputDecoration(hintText:"Enter side length",fillColor: Colors.white,filled: true),
+                decoration: InputDecoration(hintText:"Enter length",fillColor: Colors.white,filled: true),
               ),
-              ElevatedButton(onPressed:
-              gotoresults(rounding(double.parse(a)),0,0,widget.choice), child:
+              TextField(controller:tcon2,
+                onChanged: (text1) {b=text1;},showCursor: true,style: TextStyle(
+                  color: Colors.black,fontStyle: FontStyle.italic,fontSize: 25,),
+                decoration: InputDecoration(hintText:"Enter breadth",fillColor: Colors.white,filled: true),
+              ),
+              ElevatedButton(onPressed: gotoresults(rounding(double.parse(b)),rounding(double.parse(c)),0,widget.choice), child:
               Text("Go to Results",style: TextStyle(
                   color: Colors.black,fontStyle: FontStyle.italic,fontSize: 24
               ),),style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),)

@@ -45,7 +45,7 @@ class _secondpageState extends State<secondpage> {
               color: Colors.black,fontStyle: FontStyle.italic,fontSize: 25,),
             decoration: InputDecoration(hintText:"Enter breadth",fillColor: Colors.white,filled: true),
           ),
-          ElevatedButton(onPressed: gotoresults(x,int.parse(c),0,widget.choice), child:
+          ElevatedButton(onPressed: gotoresults(int.parse(b),int.parse(c),0,widget.choice), child:
           Text("Go to Results",style: TextStyle(
               color: Colors.black,fontStyle: FontStyle.italic,fontSize: 24
           ),),style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),)
@@ -114,12 +114,7 @@ class _secondpageState extends State<secondpage> {
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              operations(x)
-            ],
-          )
+          operations(x)
         ],
       ),
     );

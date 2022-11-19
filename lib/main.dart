@@ -31,11 +31,20 @@ class _finalprojState extends State<finalproj> {
   var choice,x;
   @override
   Widget build(BuildContext context) {
-    gototri(){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>secondtri(choice: x)));
-    }
-    gotonextpage(){
-      Navigator.push(context,MaterialPageRoute(builder: (context)=>secondpage(choice: x)));
+    gotonextpage() {
+      if (x=='Triangle'){
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => secondtri(choice: x)));
+      }else if (x=='Square'){
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => secondpage(choice: x)));
+      }else if (x=='Rectangle'){
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => secondrect(choice: x)));
+      }else if (x=='Circle'){
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => secondcir(choice: x)));
+      }
     }
     return Scaffold(
         backgroundColor: Colors.black,
